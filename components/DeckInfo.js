@@ -19,9 +19,12 @@ export default function DeckInfo(props) {
 
   return (
     <View style={style.container}>
+      <View>
+        <Text style={style.title}>{card.title}</Text>
+      </View>
       <Animated.Image
         style={{
-          height: 300,
+          height: 280,
           width: Dimensions.get('window').width - 20,
           opacity,
           borderRadius: 20
@@ -29,7 +32,11 @@ export default function DeckInfo(props) {
         source={{ uri: card.image }}
       />
       <View>
-        <Text>{card.questions.length} Cards</Text>
+        <Text style={style.cardno}>
+          {card.questions.length === 1
+            ? `${card.questions.length} Card`
+            : `${card.questions.length} Cards`}
+        </Text>
       </View>
       <View>
         <TouchableOpacity
@@ -63,5 +70,13 @@ const style = StyleSheet.create({
     marginHorizontal: 'auto',
     marginVertical: 5,
     textAlign: 'center'
+  },
+  title: {
+    padding: 10,
+    fontSize: 24
+  },
+  cardno: {
+    padding: 10,
+    fontSize: 18
   }
 });

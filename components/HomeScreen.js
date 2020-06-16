@@ -59,7 +59,9 @@ const Home = props => {
                 <View style={style.absoluteText}>
                   <Text style={{ fontSize: 17 }}>{obj.title}</Text>
                   <Text style={{ fontSize: 17 }}>
-                    {obj.questions.length} Cards
+                    {obj.questions.length === 1
+                      ? `${obj.questions.length} Card`
+                      : `${obj.questions.length} Cards`}
                   </Text>
                 </View>
               </TouchableOpacity>

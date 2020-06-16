@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import { useSelector } from 'react-redux';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { green, white_background, black, red } from './utils/Color';
+import { green, white_background, black, red, blue } from './utils/Color';
 import {
   clearLocalNotification,
   setLocalNotification
@@ -52,7 +52,9 @@ export default function Quiz(props) {
   if (question.length === 0) {
     return (
       <View style={style.container}>
-        <Text>You don't have any card. Please add some to start the quiz</Text>
+        <Text style={{ padding: 10 }}>
+          You don't have any card. Please add some to start the quiz!!
+        </Text>
         <View style={{ marginTop: 10 }}>
           <TouchableOpacity
             onPress={() =>
@@ -112,10 +114,17 @@ export default function Quiz(props) {
             </View>
           </View>
         ) : (
-          <View style={{ marginTop: 15 }}>
-            <TouchableOpacity onPress={() => resetQuiz()}>
-              <Text style={style.correct}>Reset</Text>
-            </TouchableOpacity>
+          <View style={style.actionButtons}>
+            <View style={{ margin: 10 }}>
+              <TouchableOpacity onPress={() => resetQuiz()}>
+                <Text style={style.correct}>Restart Quiz</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={{ margin: 10 }}>
+              <TouchableOpacity onPress={() => props.navigation.goBack()}>
+                <Text style={style.goBack}>Back to Deck</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         )}
 
@@ -164,11 +173,28 @@ const style = StyleSheet.create({
     alignItems: 'flex-start',
     flexDirection: 'row'
   },
+  actionButtons: {
+    marginTop: 15,
+    justifyContent: 'space-around',
+    alignItems: 'flex-start',
+    flexDirection: 'row'
+  },
   correct: {
     padding: 10,
     paddingHorizontal: 20,
     textAlign: 'center',
     backgroundColor: green,
+    color: white_background,
+    borderColor: black,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    alignSelf: 'flex-start'
+  },
+  goBack: {
+    padding: 10,
+    paddingHorizontal: 20,
+    textAlign: 'center',
+    backgroundColor: blue,
     color: white_background,
     borderColor: black,
     borderStyle: 'solid',

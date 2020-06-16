@@ -55,7 +55,7 @@ export default function NewwQuestion(props) {
   return (
     <ScrollView>
       <View style={style.container}>
-        <Text>Add New Question here</Text>
+        <Text style={{ marginTop: 10 }}>Add New Question here</Text>
         <KeyboardAvoidingView behavior='padding'>
           <TextInput
             style={style.QuesTitle}
@@ -121,7 +121,8 @@ const style = StyleSheet.create({
     justifyContent: 'flex-start',
     textAlign: 'left',
     alignItems: 'flex-start',
-    alignContent: 'flex-start'
+    alignContent: 'flex-start',
+    padding: 10
   },
   QuesTitle: {
     borderColor: black,
@@ -130,6 +131,7 @@ const style = StyleSheet.create({
     height: 50,
     width: Dimensions.get('window').width - 40,
     marginBottom: 20,
-    marginTop: 20
+    marginTop: 20,
+    padding: 10
   }
 });

@@ -15,3 +15,7 @@ This is the Last Project of the Udacity React Nanodegree Program. The main aim o
 - Install all project dependencies with `npm install`
 - Then run `expo start` to start the server then browser will be opened with QR code
 - Scan the QR code using your expo app scanner and your app will be up and running on your phone
+
+## Platforms Tested
+
+- This app is tested on Android Platform. (This app is built with expo and I tested it on my Android Phone with the help of expo app).
